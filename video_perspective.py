@@ -23,10 +23,10 @@ def show_from_name(path):
             plt.show()
     else:
         raise ValueError(f"path should be a string or a list of strings, but got {type(path)}")
- 
+
 def combine_lists(source, coordinates):
     order = chain.from_iterable(zip(source, coordinates))
-    arguments = list(chain.from_iterable(order))
+    arguments = list(chain.from_iterable(order)) 
     return arguments
 '''
 ### Order:
@@ -49,7 +49,7 @@ def get_distort_params(dimensions, face_coords):
 # other = get_from_cv2("raul.png")
 
 #### Global variables ####
-w = 600 #of the main frame
+w = 900 #of the main frame
 h = 600 #of the main frame
 R = 100 #radius of the circular table
 # all_users = [raul, fake, other] # position 0 is the current one, order is counterclockwise
@@ -86,10 +86,10 @@ with WandImage.from_array(frame_mask) as mask_image:
     ########## Person 2 ##################3
     w_person_2, h_person_2 = mask_image.size
     person_2_coord = (
-        (table_coordinates_in_perspective[3]+2*table_coordinates_in_perspective[1])/3 - np.array([0, 100]),
-        (table_coordinates_in_perspective[1]+2*table_coordinates_in_perspective[3])/3 - np.array([0, 100]),
-        (table_coordinates_in_perspective[3]+2*table_coordinates_in_perspective[1])/3,
-        (table_coordinates_in_perspective[1]+2*table_coordinates_in_perspective[3])/3
+        (table_coordinates_in_perspective[3]+3*table_coordinates_in_perspective[1])/4 - np.array([0, 100]),
+        (table_coordinates_in_perspective[1]+3*table_coordinates_in_perspective[3])/4 - np.array([0, 100]),
+        (table_coordinates_in_perspective[3]+3*table_coordinates_in_perspective[1])/4,
+        (table_coordinates_in_perspective[1]+3*table_coordinates_in_perspective[3])/4
     )
 
     ######### Person 3 ####################
